@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = function(environment) {
+  const endPoint = process.env.API_ROOT ? process.env.API_ROOT : "https://homswag.herokuapp.com"
   let ENV = {
     modulePrefix: 'admin-homswag',
     environment,
@@ -15,6 +16,14 @@ module.exports = function(environment) {
         // Prevent Ember Data from overriding Date.parse.
         Date: false
       }
+    },
+
+    "ember-simple-auth": {
+      baseURL: endPoint,
+      authorizer: 'authorizer:token',
+      authenticationRoute: 'authentication.login',
+      routeIfAlreadyAuthenticated: 'item.index',
+      routeAfterAuthentication: 'item.index',
     },
 
     firebase: {

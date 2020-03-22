@@ -25,6 +25,15 @@ Router.map(function() {
   this.route('order', function() {
     this.route('details', {path: 'details/:order_id'});
   });
+  this.route('authentication', {path: ''}, function() {
+    this.route('login');
+    this.route('logout');
+    this.route('change-role');
+  });
+  this.route('user', function() {
+    this.route('create');
+    this.route('update');
+  });
 });
 
 export default Router;
