@@ -6,7 +6,7 @@ export default DS.RESTAdapter.extend({
   namespace: "api/v1",
   headers: computed(function() {
     return {
-      "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiaWF0IjoxNTg5MDE1OTYzLCJleHAiOjE1ODk4Nzk5NjN9.Xix71qUP14zD4cB7jOSw_p05TmrXAF2YOXj2o3-0v6E",
+      "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTU4OTg4NzkyNSwiZXhwIjoxNTkwNzUxOTI1fQ.WKuzvFqKnj2p8zOynQbKISWVmWWuOpcJDddImiDClOg",
     }
   }),
   handleResponse: function (status,headers,payload,requestData){
