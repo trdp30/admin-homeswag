@@ -1,4 +1,7 @@
-{{nav-bar routeName=routeName}}
+{{log session showNav currentPath}}
+{{#if showNav}}
+  {{nav-bar routeName=routeName}}
+{{/if}}
 <div class="ui container pusher" style="padding-top: 10px">
   {{outlet}}
 </div>

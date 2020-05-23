@@ -1,10 +1,11 @@
 'use strict';
 
 module.exports = function(environment) {
-  const endPoint = process.env.API_ROOT ? process.env.API_ROOT : "https://homswag.herokuapp.com"
+  const endPoint = "https://homswag.herokuapp.com"
   let ENV = {
     modulePrefix: 'admin-homswag',
     environment,
+    API_ROOT: endPoint,
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -19,7 +20,7 @@ module.exports = function(environment) {
     },
 
     "ember-simple-auth": {
-      baseURL: endPoint,
+      rootURL: endPoint,
       authorizer: 'authorizer:token',
       authenticationRoute: 'authentication.login',
       routeIfAlreadyAuthenticated: 'item.index',
@@ -40,6 +41,9 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      LAST_UPDATE: '' + new Date(),
+      API_ROOT: endPoint,
+
     },
 
     'ember-toastr': {
