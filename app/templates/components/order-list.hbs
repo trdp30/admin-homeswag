@@ -24,7 +24,7 @@
                     {{/each}}
                   </ol>
                 </td>
-              {{else if (eq column.key 'appointment')}}
+              {{else if (or (eq column.key 'appointment') (eq column.key 'confirm_from'))}}
                 <td style="padding-left: : 10px;">
                     {{moment-format data.appointment.from "hh:mm A, DD/MM/YYYY"}}
                 </td>

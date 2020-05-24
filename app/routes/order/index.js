@@ -23,6 +23,7 @@ export default Route.extend({
       EmberObject.create({ key: "cartItems", name: "Items", width: 260 }),
       EmberObject.create({ key: "created_at", name: "Appointment Placed on", width: 200 }),
       EmberObject.create({ key: "appointment", name: "Appointment Placed for", width: 200 }),
+      EmberObject.create({ key: "confirm_from", name: "Appointment Confirm for", width: 200 }),
       EmberObject.create({ key: "total_paid", name: "Total Paid", width: 100 }),
       EmberObject.create({ key: "formatedStatus", name: "Status", width: 200 }),
       EmberObject.create({ key: "address.formatedAddress", name: "Address", width: 300 }),
