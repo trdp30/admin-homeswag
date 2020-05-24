@@ -3,7 +3,6 @@ import ENV from './../config/environment';
 import RSVP from 'rsvp';
 import fetch from 'fetch';
 
-
 export default OAuth2PasswordGrantAuthenticator.extend({
   serverTokenEndpoint: ENV.APP.API_ROOT+`/api/v1/oauth`,
 
@@ -25,10 +24,9 @@ export default OAuth2PasswordGrantAuthenticator.extend({
         response.text().then((text) => {
           try {
             let json = JSON.parse(text);
-            json.headers = response.headers.map
             if (!response.ok) {
               response.responseJSON = json;
-              reject(response);
+              reject(json);
             } else {
               resolve(json);
             }

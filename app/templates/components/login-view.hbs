@@ -6,28 +6,39 @@
         Log-in to your account
       </div>
     </h2>
-    <form class="ui large form">
-      <div class="ui stacked segment">
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="user icon"></i>
-            {{input type="text" name="email" placeholder="E-mail address" value=email}}
-          </div>
+    {{#if showAuthenticateButton}}
+      <form class="ui form">
+        <div class="field margin-no text-align-left">
+          <label>Email</label>
+          {{input type="text" name="email" placeholder="E-mail address" value=email disabled=true}}
+          <p class="text-color-red text-size-small text-left text-size-vsmall" style="font-size: 0.75em !important; margin: 5px 5px; min-height: 18px;">
+            {{errorEmail}}
+          </p>
         </div>
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="lock icon"></i>
-            {{input type="password" name="password" placeholder="Password" value=password}}
-          </div>
+        <div class="field margin-no text-align-left">
+          <label>OTP</label>
+          {{input type="password" name="OTP" placeholder="Enter OTP here" value=otp autocomplete=false}}
+          <p class="text-color-red text-size-small text-left text-size-vsmall" style="font-size: 0.75em !important; margin: 5px 5px; min-height: 18px;">
+            {{errorOTP}}
+          </p>
         </div>
-        <div class="ui fluid large teal submit button" {{action 'authenticate'}}>Login</div>
-      </div>
-      {{#if errorMessage}}
-        <div class="ui error message">
-          <p>{{errorMessage}}</p>
+        <div class="two fields text-center">
+          <div class="ui small teal button {{if isDisabled 'disabled'}}" {{action 'toggleView' 'showAuthenticateButton'}}>Back</div>
+          <div class="ui small teal button {{if isDisabled 'disabled'}}" {{action 'authenticate'}}>Login</div>
         </div>
-      {{/if}}
-    </form>
+      </form>
+    {{else}}
+      <form class="ui form">
+        <div class="field margin-no text-align-left">
+          <label>Email</label>
+          {{input type="text" name="email" placeholder="E-mail address" value=email}}
+        </div>
+        <p class="text-color-red text-size-small text-left text-size-vsmall" style="font-size: 0.75em !important; margin: 5px 5px; min-height: 18px;">
+          {{errorEmail}}
+        </p>
+        <div class="ui teal submit button {{if isDisabled 'disabled'}}" {{action 'getOtp'}}>Continue</div>
+      </form>
+    {{/if}}
   </div>
 </div>
 {{yield}}

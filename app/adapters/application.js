@@ -10,9 +10,8 @@ export default DS.RESTAdapter.extend(DataAdapterMixin, {
 
   headers: computed('session.data.authenticated.access_token', function() {
     let headers = {};
-    if (this.session.isAuthenticated) {
-      // headers['Authorization'] = `Bearer ${this.session.data.authenticated.access_token}`;
-      headers['Authorization'] = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTU4NDA4NDY3NiwiZXhwIjoxNTg0OTQ4Njc2fQ.FvbEpwHIRMvwJ91xjkSVqyvJ4SF5JKvcTehTakZObAM`;
+    if (this.get("session.isAuthenticated")) {
+      headers['Authorization'] = `Bearer ${this.get("session.data.authenticated.access_token")}`;
     }
     return headers;
   }),

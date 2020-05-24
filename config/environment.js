@@ -22,9 +22,9 @@ module.exports = function(environment) {
     "ember-simple-auth": {
       rootURL: endPoint,
       authorizer: 'authorizer:token',
-      authenticationRoute: 'authentication.login',
-      routeIfAlreadyAuthenticated: 'item.index',
-      routeAfterAuthentication: 'item.index',
+      authenticationRoute: 'login',
+      routeIfAlreadyAuthenticated: 'order',
+      routeAfterAuthentication: 'order',
     },
 
     firebase: {
