@@ -1,44 +1,57 @@
-<div class="ui middle aligned center aligned grid">
+<div class="ui two column centered grid" style="height: 100vh">
   <div class="column">
-    <h2 class="ui teal image header">
-      {{!-- <img src="assets/images/logo.png" class="image"> --}}
-      <div class="content">
-        Log-in to your account
+      <div class="ui middle aligned center aligned grid" style="background-color: #3475D3; position: relative; top: 7vh; height: 84vh">
+        <div class="column" style="padding-bottom: 26vh;">
+          <div class="imgcontainer">
+            <img src="/image/logo.png" alt="Avatar" class="avatar">
+          </div>
+          <h2 class="ui teal image header">
+            {{!-- <img src="assets/images/logo.png" class="image"> --}}
+            <div class="content" style="margin-top: 20px;">
+              Log-in to your account
+            </div>
+          </h2>
+          {{#if showAuthenticateButton}}
+          <div class="ui middle aligned center aligned grid" style="margin-top: 30px;">
+            <form class="ui form" style="width: 301px;">
+              <div class="field margin-no text-align-left">
+                <label>Email</label>
+                {{input type="text" name="email" placeholder="E-mail address" value=email disabled=true}}
+                <p class="text-color-red text-size-small text-left text-size-vsmall" style="font-size: 0.75em !important; margin: 5px 5px; min-height: 18px;">
+                  {{errorEmail}}
+                </p>
+              </div>
+              <div class="field margin-no text-align-left">
+                <label>OTP</label>
+                {{input type="password" name="OTP" placeholder="Enter OTP here" value=otp autocomplete=false}}
+                <p class="text-color-red text-size-small text-left text-size-vsmall" style="font-size: 0.75em !important; margin: 5px 5px; min-height: 18px;">
+                  {{errorOTP}}
+                </p>
+              </div>
+                <div class="ui small teal button {{if isDisabled 'disabled'}}" {{action 'toggleView' 'showAuthenticateButton'}}>Back</div>
+                <div class="ui small teal button {{if isDisabled 'disabled'}}" {{action 'authenticate'}}>Login</div>
+            </form>
+          </div>
+          {{else}}
+          <div class="ui middle aligned center aligned grid" style="margin-top: 30px;">
+            <form class="ui form"  style="width: 301px;">
+              <div class="field margin-no text-align-left">
+                <label>Email</label>
+                {{input type="text" name="email" placeholder="E-mail address" value=email}}
+              </div>
+              <p class="text-color-red text-size-small text-left text-size-vsmall" style="font-size: 0.75em !important; margin: 5px 5px; min-height: 18px;">
+                {{errorEmail}}
+              </p>
+              <div class="ui teal submit button {{if isDisabled 'disabled'}}" {{action 'getOtp'}}>Continue</div>
+            </form>
+          </div>
+          {{/if}}
+        </div>
       </div>
-    </h2>
-    {{#if showAuthenticateButton}}
-      <form class="ui form">
-        <div class="field margin-no text-align-left">
-          <label>Email</label>
-          {{input type="text" name="email" placeholder="E-mail address" value=email disabled=true}}
-          <p class="text-color-red text-size-small text-left text-size-vsmall" style="font-size: 0.75em !important; margin: 5px 5px; min-height: 18px;">
-            {{errorEmail}}
-          </p>
-        </div>
-        <div class="field margin-no text-align-left">
-          <label>OTP</label>
-          {{input type="password" name="OTP" placeholder="Enter OTP here" value=otp autocomplete=false}}
-          <p class="text-color-red text-size-small text-left text-size-vsmall" style="font-size: 0.75em !important; margin: 5px 5px; min-height: 18px;">
-            {{errorOTP}}
-          </p>
-        </div>
-        <div class="two fields text-center">
-          <div class="ui small teal button {{if isDisabled 'disabled'}}" {{action 'toggleView' 'showAuthenticateButton'}}>Back</div>
-          <div class="ui small teal button {{if isDisabled 'disabled'}}" {{action 'authenticate'}}>Login</div>
-        </div>
-      </form>
-    {{else}}
-      <form class="ui form">
-        <div class="field margin-no text-align-left">
-          <label>Email</label>
-          {{input type="text" name="email" placeholder="E-mail address" value=email}}
-        </div>
-        <p class="text-color-red text-size-small text-left text-size-vsmall" style="font-size: 0.75em !important; margin: 5px 5px; min-height: 18px;">
-          {{errorEmail}}
-        </p>
-        <div class="ui teal submit button {{if isDisabled 'disabled'}}" {{action 'getOtp'}}>Continue</div>
-      </form>
-    {{/if}}
-  </div>
+
+
+   </div>
 </div>
+
+
 {{yield}}
