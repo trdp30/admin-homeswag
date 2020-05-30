@@ -1,6 +1,10 @@
 {{#if (and session.isAuthenticated showNav)}}
   {{nav-bar routeName=routeName}}
 {{/if}}
-<div class="ui container pusher" style="padding-top: 10px">
+{{#if (eq currentPath 'login')}}
   {{outlet}}
-</div>
+{{else}}
+  <div class="ui container pusher" style="padding-top: 10px">
+    {{outlet}}
+  </div>
+{{/if}}{{log currentRoute}}
