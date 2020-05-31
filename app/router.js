@@ -24,6 +24,7 @@ Router.map(function() {
   });
   this.route('order', function() {
     this.route('details', {path: 'details/:order_id'});
+    this.route('create');
   });
 });
 

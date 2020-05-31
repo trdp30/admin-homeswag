@@ -1,5 +1,5 @@
 <div class="ui container" style="padding-top: 10px">
-  <div class="ui seven item menu desktop-menu">
+  <div class="ui nine item menu desktop-menu">
     {{#link-to "category.index" class="item"}}Categories{{/link-to}}
     {{#link-to "category.create" class="item"}}Add Category{{/link-to}}
     {{#link-to "item.index" class="item"}}Items{{/link-to}}
@@ -7,6 +7,7 @@
     {{#link-to "package.index" class="item"}}Packages{{/link-to}}
     {{#link-to "package.create" class="item"}}Add Package{{/link-to}}
     {{#link-to "order.index" class="item"}}Appointments{{/link-to}}
+    {{#link-to "order.create" class="item"}}Add Appointment{{/link-to}}
   </div>
   <div class="ui segment mobile-menu" style="border: none; box-shadow: none">
     <div style="text-align: center;">
@@ -24,6 +25,7 @@
     {{#link-to "package.index" class="item"}}Packages{{/link-to}}
     {{#link-to "package.create" class="item"}}Add Package{{/link-to}}
     {{#link-to "order.index" class="item"}}Appointments{{/link-to}}
+    {{#link-to "order.create" class="item"}}Add Appointment{{/link-to}}
   </div>
 </div>
 {{yield}}
