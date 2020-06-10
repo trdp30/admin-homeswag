@@ -16,7 +16,18 @@
   height: ~"calc(100vh - 200px)";
   overflow: auto;
 }
-
+.text {
+  &-align {
+    &-left {
+      text-align: left;
+    }
+  }
+  &-color {
+    &-red {
+      color: red;
+    }
+  }
+}
 @media only screen and (max-width: 767px) {
   .desktop-menu {
     display: none !important;
@@ -34,6 +45,23 @@
     height: ~"calc(100vh - 200px)";
     overflow: auto;
   }
-  
 }
 
+.avatar {
+  width: 30%;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+.avatar {
+	margin: auto;
+	width: 231px;
+	border-radius: 12px;
+	height: 211px;
+	position: relative;
+	bottom: -15px;
+}
