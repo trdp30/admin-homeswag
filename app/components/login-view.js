@@ -82,6 +82,7 @@ export default Component.extend({
       this.set('isOtpDisabled', true)
       this.set('otp', null)
       this.set('errorEmail', null)
+      this.set('isOtpResend', false);
       if(!this.get('email') && !this.get('email').length) {
         return this.send('setErrorField', 'errorEmail', "This field is required");
       }

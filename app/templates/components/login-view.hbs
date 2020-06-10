@@ -32,23 +32,27 @@
                     {{errorOTP}}
                   </p>
                 </div>
-                <div class="ui padded fields">
+                <div class="ui two column grid">
                   {{#if isOtpResend}}
-                    <div class="ui small field">
-                      <a href="#" class="right floated" style="color:black;" {{action 'getOtp'}}>Resend OTP</a>
+                    <div class="column">
+                        <div class="ui small field">
+                          <a href="#" class="right floated" style="color:black; font-size: smaller" {{action 'getOtp'}}>Resend OTP</a>
+                        </div>
                     </div>
                   {{/if}}
-                  <div class="ui small field">
-                    <a href="#" class="right floated" style="color:black;" {{action 'toggleView' 'showAuthenticateButton'}}>&nbsp; &nbsp; Re-Enter Email Id</a>
+                  <div class="column">
+                    <div class="ui small field">
+                      <a href="#" class="right floated" style="color:black; font-size: smaller" {{action 'toggleView' 'showAuthenticateButton'}}>Re-Enter Email</a>
+                    </div>
                   </div>
                 </div>
               {{/if}}
               {{#if showAuthenticateButton}}
-                <div class="ui  field">
+                <div class="ui field" style="margin-top: 12px;">
                     <button class="ui padded fluid large blue submit button {{if isOtpEmpty 'disabled'}}" {{action 'authenticate'}} type="submit">Continue</button>
                 </div>
               {{else}}
-                <div class="ui  field">
+                <div class="ui field" style="margin-top: 12px;">
                   <button class="ui padded fluid large blue submit button {{if isEmailEmpty 'disabled'}}" {{action 'getOtp'}} type="submit">Submit</button>
                 </div>
               {{/if}}
