@@ -138,6 +138,8 @@ export default Component.extend({
     toggleView(property) {
       this.toggleProperty(property)
       this.set('isEmailDisabled', false)
+      this.set('isOtpResend', false);
+
     }
   }
 });
