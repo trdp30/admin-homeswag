@@ -24,9 +24,9 @@
         {{#each model.cartItems as |cartItem|}}
           <ol>
             {{#if cartItem.is_package}}
-              <li>Package: {{cartItem.package.name}}</li>
+              <li>Package: {{cartItem.package.name}} - {{cartItem.quantity}}(quantity)</li>
             {{else}}
-              <li>{{cartItem.item.name}}</li>
+              <li>{{cartItem.item.name}} - {{cartItem.quantity}}(quantity)</li>
             {{/if}}
           </ol>
         {{/each}}

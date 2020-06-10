@@ -1,6 +1,8 @@
-import Ember from 'ember';
+/* eslint-disable ember/closure-actions */
 import FileField from 'ember-uploader/components/file-field';
 import { inject as service } from '@ember/service';
+import { v4 as uuidv4 } from 'uuid';
+import $ from 'jquery';
 
 export default FileField.extend({
   supportedExtensions: 'doc docx odt pdf rtf txt ps',
@@ -19,7 +21,7 @@ export default FileField.extend({
       contentType: 'image/jpeg'
     };
 
-    var uploadTask = storageRef.child('images/' + file.name).put(file, metadata);
+    var uploadTask = storageRef.child('images/' + uuidv4() + file.name).put(file, metadata);
 
     uploadTask.on('state_changed', (snapshot) => that.progressStatus(snapshot), (error) => that.catchError(error),
      () => uploadTask.snapshot.ref.getDownloadURL().then((url) => that.save(uploadTask.snapshot.ref, url)))
@@ -79,7 +81,7 @@ export default FileField.extend({
   willDestroyElement() {
     this._super(...arguments);
     if(this.get('target')){
-       Ember.$(this.get('target')).off('click');
+       $(this.get('target')).off('click');
     }
   },
 });

@@ -24,9 +24,13 @@
                     {{/each}}
                   </ol>
                 </td>
-              {{else if (eq column.key 'appointment')}}
+              {{else if (or (eq column.key 'appointment.from') (eq column.key 'confirm_from'))}}
                 <td style="padding-left: : 10px;">
-                    {{moment-format data.appointment.from "hh:mm A, DD/MM/YYYY"}}
+                  {{#if (get data column.key)}}
+                    {{moment-format (get data column.key) "hh:mm A, DD/MM/YYYY"}}
+                  {{else}}
+                    Not set
+                  {{/if}}
                 </td>
               {{else if (eq column.key 'created_at')}}
                 <td style="padding-left: : 10px;">{{moment-format (get-property data column.key) "hh:mm A, DD/MM/YYYY"}}</td>
