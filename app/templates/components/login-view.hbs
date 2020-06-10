@@ -1,0 +1,65 @@
+{{!-- <div class="ui two column stackable grid" style="background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);"> --}}
+<div class="ui two column stackable grid">
+  {{!-- <div class="ui ten wide column row" style="background-size:auto 100%; background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%); background-repeat:no-repeat;"> --}}
+  <div class="ui ten wide column row" style="padding: 0 !important">
+    {{!-- <img src="/image/logo.png" alt="Avatar" class="avatar"> --}}
+  </div>
+  <div class="ui five wide column">
+    <div class="ui column middle aligned center aligned padded grid" style="height:97vh;">
+      <div class="ui column">
+        {{!-- <div class="ui very padded segment" style="background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);"> --}}
+        <div class="ui very padded segment">
+          <div class="ui big form">
+            <h1>Login</h1>
+            <form>
+              <div class="ui very padded field">
+                <div class="ui left icon input {{if isEmailDisabled 'disabled'}}">
+                  {{input type="text" name="email" placeholder="Enter Email Id" value=email}}
+                  <i class="users icon"></i>
+                </div>
+                <p class="text-color-red text-size-small text-left text-size-vsmall" style="font-size: 0.75em !important; margin: 5px 5px; min-height: 18px;">
+                  {{errorEmail}}
+                </p>
+              </div>
+              <div class="ui field"></div>
+              {{#if showAuthenticateButton}}
+                <div class="ui  field">
+                  <div class="ui left icon input {{if isOtpDisabled 'disabled'}}">
+                    <i class="lock icon"></i>
+                    {{input type="text" name="OTP" placeholder="Enter OTP here" value=otp autocomplete="off"}}
+                  </div>
+                  <p class="text-color-red text-size-small text-left text-size-vsmall" style="font-size: 0.75em !important; margin: 5px 5px; min-height: 18px;">
+                    {{errorOTP}}
+                  </p>
+                </div>
+                <div class="ui padded fields">
+                  {{#if isOtpResend}}
+                    <div class="ui small field">
+                      <a href="#" class="right floated" style="color:black;" {{action 'getOtp'}}>Resend OTP</a>
+                    </div>
+                  {{/if}}
+                  <div class="ui small field">
+                    <a href="#" class="right floated" style="color:black;" {{action 'toggleView' 'showAuthenticateButton'}}>&nbsp; &nbsp; Re-Enter Email Id</a>
+                  </div>
+                </div>
+              {{/if}}
+              {{#if showAuthenticateButton}}
+                <div class="ui  field">
+                    <button class="ui padded fluid large blue submit button {{if isOtpEmpty 'disabled'}}" {{action 'authenticate'}} type="submit">Continue</button>
+                </div>
+              {{else}}
+                <div class="ui  field">
+                  <button class="ui padded fluid large blue submit button {{if isEmailEmpty 'disabled'}}" {{action 'getOtp'}} type="submit">Submit</button>
+                </div>
+              {{/if}}
+              <div class="ui padded field">
+                <p style="font-size:0.8em;">© HomeSwag | All Rights Reserved</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{liquid-outlet}}

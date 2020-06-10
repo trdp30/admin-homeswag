@@ -1,14 +1,21 @@
 import DS from 'ember-data';
 import { computed } from '@ember/object';
+import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
+import { inject as service } from '@ember/service';
 
-export default DS.RESTAdapter.extend({
+export default DS.RESTAdapter.extend(DataAdapterMixin, {
+  session: service(),
   host: "https://homswag.herokuapp.com",
   namespace: "api/v1",
-  headers: computed(function() {
-    return {
-      "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTU5MTcwMzM1NiwiZXhwIjoxNTkyNTY3MzU2fQ.Ppqjgb9qeYNmeZMphJE6HtJ3N9ckwEhf-nJ0MXVVFfA",
+
+  headers: computed('session.data.authenticated.access_token', function() {
+    let headers = {};
+    if (this.get("session.isAuthenticated")) {
+      headers['Authorization'] = `Bearer ${this.get("session.data.authenticated.access_token")}`;
     }
+    return headers;
   }),
+
   handleResponse: function (status,headers,payload,requestData){
     if(payload){
       if(status >= 400){

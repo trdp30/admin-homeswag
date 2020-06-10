@@ -1,9 +1,11 @@
 'use strict';
 
 module.exports = function(environment) {
+  const endPoint = "https://homswag.herokuapp.com"
   let ENV = {
     modulePrefix: 'admin-homswag',
     environment,
+    API_ROOT: endPoint,
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -15,6 +17,14 @@ module.exports = function(environment) {
         // Prevent Ember Data from overriding Date.parse.
         Date: false
       }
+    },
+
+    "ember-simple-auth": {
+      rootURL: endPoint,
+      authorizer: 'authorizer:token',
+      authenticationRoute: 'login',
+      routeIfAlreadyAuthenticated: 'order',
+      routeAfterAuthentication: 'order',
     },
 
     firebase: {
@@ -31,6 +41,9 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      LAST_UPDATE: '' + new Date(),
+      API_ROOT: endPoint,
+
     },
 
     'ember-toastr': {
