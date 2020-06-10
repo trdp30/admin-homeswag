@@ -1,12 +1,69 @@
 <div class="ui container" style="padding-top: 10px">
-  <div class="ui seven item menu desktop-menu">
-    {{#link-to "category.index" class="item"}}Categories{{/link-to}}
-    {{#link-to "category.create" class="item"}}Add Category{{/link-to}}
-    {{#link-to "item.index" class="item"}}Items{{/link-to}}
-    {{#link-to "item.create" class="item"}}Add Item{{/link-to}}
-    {{#link-to "package.index" class="item"}}Packages{{/link-to}}
-    {{#link-to "package.create" class="item"}}Add Package{{/link-to}}
-    {{#link-to "order.index" class="item"}}Appointments{{/link-to}}
+  <div class="desktop-menu">
+    <div class="ui equal width center aligned padded grid">
+      <div class="ui compact menu" style="padding: 0px;">
+        <div class="ui simple dropdown item">
+          Categories
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item">
+              {{#link-to "category.index"}}View Categories{{/link-to}}
+            </div>
+            <div class="item">
+              {{#link-to "category.create"}}Add Category{{/link-to}}
+            </div>
+          </div>
+        </div>
+        <div class="ui simple dropdown item">
+          Items
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item">
+              {{#link-to "item.index"}}View Items{{/link-to}}
+            </div>
+            <div class="item">
+              {{#link-to "item.create"}}Add Item{{/link-to}}
+            </div>
+          </div>
+        </div>
+        <div class="ui simple dropdown item">
+          Packages
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item">
+              {{#link-to "package.index"}}View Packages{{/link-to}}
+            </div>
+            <div class="item">
+              {{#link-to "package.create"}}Add Package{{/link-to}}
+            </div>
+          </div>
+        </div>
+        <div class="ui simple dropdown item">
+          Appointments
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item">
+              {{#link-to "order.index"}}Appointments{{/link-to}}
+            </div>
+            <div class="item">
+              {{#link-to "order.create"}}Create Appointments{{/link-to}}
+            </div>
+          </div>
+        </div>
+         <div class="ui simple dropdown item">
+          Appointments
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item">
+              {{#link-to "order.index"}}Appointments{{/link-to}}
+            </div>
+            <div class="item">
+              {{#link-to "order.create"}}Create Appointments{{/link-to}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="ui segment mobile-menu" style="border: none; box-shadow: none">
     <div style="text-align: center;">
@@ -16,14 +73,64 @@
       <label style="font-size: 18px; font-weight: 500;">{{routeName}}</label>
     </div>
   </div>
+
   <div class="ui sidebar vertical menu">
-    {{#link-to "category.index" class="item"}}Categories{{/link-to}}
-    {{#link-to "category.create" class="item"}}Add Category{{/link-to}}
-    {{#link-to "item.index" class="item"}}Items{{/link-to}}
-    {{#link-to "item.create" class="item"}}Add Item{{/link-to}}
-    {{#link-to "package.index" class="item"}}Packages{{/link-to}}
-    {{#link-to "package.create" class="item"}}Add Package{{/link-to}}
-    {{#link-to "order.index" class="item"}}Appointments{{/link-to}}
+    <div class="ui accordion">
+      <div class="title">
+        <i class="dropdown icon"></i>
+          Categories
+      </div>
+      <div class="content">
+        <p class="transition hidden">
+          {{#link-to "category.index" class="item"}}Categories{{/link-to}}
+        </p>
+        <p class="transition hidden">
+          {{#link-to "category.create" class="item"}}Add Category{{/link-to}}
+        </p>
+      </div>
+    </div>
+    <div class="ui accordion">
+      <div class="title">
+        <i class="dropdown icon"></i>
+          Items
+      </div>
+      <div class="content">
+        <p class="transition hidden">
+          {{#link-to "item.index" class="item"}}Items{{/link-to}}
+        </p>
+        <p class="transition hidden">
+          {{#link-to "item.create" class="item"}}Add Item{{/link-to}}
+        </p>
+      </div>
+    </div>
+    <div class="ui accordion">
+      <div class="title">
+        <i class="dropdown icon"></i>
+          Packages
+      </div>
+      <div class="content">
+        <p class="transition hidden">
+          {{#link-to "package.index" class="item"}}Packages{{/link-to}}
+        </p>
+        <p class="transition hidden">
+          {{#link-to "package.create" class="item"}}Add Package{{/link-to}}
+        </p>
+      </div>
+    </div>
+    <div class="ui accordion">
+      <div class="title">
+        <i class="dropdown icon"></i>
+          Appointments
+      </div>
+      <div class="content">
+        <p class="transition hidden">
+          {{#link-to "order.index" class="item"}}Appointments{{/link-to}}
+        </p>
+        <p class="transition hidden">
+          {{#link-to "order.create" class="item"}}Create Appointments{{/link-to}}
+        </p>
+      </div>
+    </div>
   </div>
 </div>
 {{yield}}

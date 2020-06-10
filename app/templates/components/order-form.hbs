@@ -1,0 +1,99 @@
+<form class="ui form" style="height: calc(100vh - 150px); overflow-y: auto; overflow-x: hidden">
+  <div class="field required">
+    <label>Customer Name</label>
+    {{input value=model.name}}
+  </div>
+  <div class="two fields">
+    <div class="field required">
+      <label>Phone Number</label>
+      {{input type="number" value=model.Phone}}
+    </div>
+    <div class="field">
+      <label>Alternate Phone Number</label>
+      {{input type="number" value=model.alt_phone}}
+    </div>
+  </div>
+  <div class="field required">
+    <label>Items</label>
+    {{power-select-dropdown
+      searchEnabled=true
+      isRemoteSearch=true
+      searchField='name'
+      optionLabel='name'
+      renderInPlace=true
+      selectedOption=model.item
+      placeHolder="Select Item"
+      modelName="item"
+    }}
+  </div>
+   <div class="field">
+    <label>Package</label>
+    {{power-select-dropdown
+      searchEnabled=true
+      isRemoteSearch=true
+      searchField='name'
+      optionLabel='name'
+      renderInPlace=true
+      selectedOption=model.package
+      placeHolder="Select Item"
+      modelName="item"
+    }}
+  </div>
+  <div class="three fields">
+    <div class="field">
+      <label>Special Instruction</label>
+      {{input  value=model.special_instruction}}
+    </div>
+    <div class="field">
+      <label>Preferred Instruction</label>
+      {{input value=model.preferred_beautician}}
+    </div>
+    <div class="field">
+      <label>&nbsp;</label>
+      <div class="ui left action input">
+        <div class="ui teal labeled icon button" style="cursor:default">
+          <i class="cart icon"></i>
+          Checkout Amount
+        </div>
+        {{input value=model.order_total}}
+      </div>
+    </div>
+  </div>
+  <div class="field required">
+    <label>Address</label>
+    <textarea rows="2"></textarea>
+  </div>
+  <div class="inline fields">
+    <label>Appointment Slot</label>
+    <div class="field">
+      <div class="ui checkbox">
+        <input type="radio" name="slot" checked="checked">
+        <label>9 Am to 2 Pm </label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui checkbox">
+        <input type="radio" name="slot">
+        <label>2 Pm to 7 Pm</label>
+      </div>
+    </div>
+  </div>
+</form>
+<div class="field" style="text-align: center;">
+  {{#if (eq type "update")}}
+    <button class="ui positive button" {{action 'update' model}}>Update</button>
+    <button class="ui negative button" {{action 'delete' model}}>Delete</button>
+  {{else if (eq type "create")}}
+    <button class="ui positive button" {{action 'save' model}}>Save</button>
+  {{/if}}
+    <button class="ui button" {{action 'back'}}>Cancel</button>
+</div>
+{{!-- <form class="ui form">
+  <div class="field">
+    <label>Insert in bulk</label>
+    {{textarea value=categoryJson placeholder="Only JSON"}}
+  </div>
+  <button class="ui positive button" {{action 'upload' categoryJson}}>Upload</button>
+</form> --}}
+  {{!-- <button class="ui positive button" {{action 'addAll'}}>add all</button> --}}
+{{yield}}
