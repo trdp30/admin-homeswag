@@ -88,10 +88,6 @@ export default Component.extend({
       if(this.isEmailValid(this.get('email'))) {
         this.set('isDisabled', true)
         this.set('isEmailDisabled', true)
-        let timeInterval = setTimeout(() => {
-          this.set('isOtpResend', true);
-        }, 10000)
-        this.set('timeInterval', timeInterval)
         const options = {
           body : JSON.stringify({ email: this.get('email')}),
           method: 'POST'
@@ -112,6 +108,10 @@ export default Component.extend({
                   this.set('showAuthenticateButton', true)
                   this.set('isOtpDisabled', false)
                   resolve(json);
+                  let timeInterval = setTimeout(() => {
+                    this.set('isOtpResend', true);
+                  }, 10000)
+                  this.set('timeInterval', timeInterval)
                 }
               } catch (SyntaxError) {
                 response.responseText = text;
