@@ -29,7 +29,7 @@ Router.map(function() {
   this.route('logout');
   this.route('dashboard');
   this.route('item', function() {
-    this.route('edit');
+    this.route('edit', {path: 'edit/:item_id'});
     this.route('create');
   });
 });
