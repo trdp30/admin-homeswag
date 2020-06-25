@@ -13,7 +13,12 @@ export default Component.extend({
     this._super(...arguments);
     this.fetchRecords()
   },
-  
+
+  search: function() {
+    this.set('page', 1),
+    this.get('model').clear()
+  }.on('selectedOrganization'),
+
   // eslint-disable-next-line ember/no-function-prototype-extensions
   fetchRecords: function() {
     if(this.get('selectedOrganization')) {
